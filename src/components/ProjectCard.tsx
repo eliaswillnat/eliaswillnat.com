@@ -63,14 +63,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark = true
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative flex flex-col justify-between p-5 rounded-2xl border shadow-sm hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1 focus:outline-none cursor-pointer ${
+      className={`group relative overflow-hidden flex flex-col justify-between p-5 rounded-2xl border shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none cursor-pointer ${
         isDark 
           ? 'bg-neutral-900/40 hover:bg-neutral-900/80 border-neutral-800/70 hover:border-neutral-700/90 hover:shadow-black/40 focus:ring-2 focus:ring-neutral-400' 
           : 'bg-white hover:bg-neutral-50/90 border-neutral-200/80 hover:border-neutral-300 hover:shadow-neutral-200/60 focus:ring-2 focus:ring-neutral-600'
       }`}
       title={`Open ${project.title} (${project.url})`}
     >
-      <div>
+      {/* Shine Sweep Effect */}
+      <div 
+        className={`absolute inset-0 -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out pointer-events-none skew-x-[-25deg] ${
+          isDark 
+            ? 'bg-gradient-to-r from-transparent via-white/[0.07] to-transparent' 
+            : 'bg-gradient-to-r from-transparent via-black/[0.04] to-transparent'
+        }`}
+      />
+
+      <div className="relative z-10">
         {/* Top bar in card: Icon + Status + Arrow */}
         <div className="flex items-start justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
@@ -120,7 +129,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark = true
       </div>
 
       {/* Card Footer: Tech tags + GitHub link */}
-      <div className={`pt-3 border-t flex items-center justify-between gap-2 mt-auto ${
+      <div className={`relative z-10 pt-3 border-t flex items-center justify-between gap-2 mt-auto ${
         isDark ? 'border-neutral-800/60' : 'border-neutral-100'
       }`}>
         <div className="flex items-center gap-1.5 flex-wrap">
