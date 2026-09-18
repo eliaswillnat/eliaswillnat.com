@@ -7,6 +7,9 @@ import { projects, Category, profileConfig } from './data/projects';
 import { Search, Compass } from 'lucide-react';
 
 export function App() {
+  const [selectedCategory, setSelectedCategory] = useState<Category>('All');
+  const [searchQuery, setSearchQuery] = useState('');
+
   // Initialize theme from localStorage or fallback to system preference
   const [isDark, setIsDark] = useState<boolean>(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -77,9 +80,6 @@ export function App() {
       return matchesCategory && matchesSearch;
     });
   }, [selectedCategory, searchQuery]);
-
-  const [selectedCategory, setSelectedCategory] = useState<Category>('All');
-  const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${
