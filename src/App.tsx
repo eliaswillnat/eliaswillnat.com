@@ -117,13 +117,13 @@ export function App() {
         <section className="mb-8 sm:mb-10 space-y-2">
           <div className={`flex items-center gap-2 text-xs font-mono tracking-wider uppercase ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
             <Compass className="w-3.5 h-3.5" />
-            <span>Applications & Experiments Directory</span>
+            <span>Projects</span>
           </div>
           <h1 className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight ${isDark ? 'text-white' : 'text-neutral-900'}`}>
             Built apps & digital tools
           </h1>
           <p className={`text-sm sm:text-base max-w-2xl leading-relaxed ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}>
-            {profileConfig.tagline} Click on any app card to launch and explore it directly.
+            {profileConfig.tagline} Click any card to open the live site.
           </p>
         </section>
 
@@ -143,7 +143,7 @@ export function App() {
         {/* Projects Grid */}
         <section>
           {filteredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
               {filteredProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} isDark={isDark} />
               ))}

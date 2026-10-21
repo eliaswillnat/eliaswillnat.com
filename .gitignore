@@ -19,3 +19,8 @@ dist-ssr
 
 # Firebase cache
 .firebase/
+
+# Local agent / screenshot workspaces
+.playwright-mcp/
+artifacts/
+whenext-gallery-*.png
