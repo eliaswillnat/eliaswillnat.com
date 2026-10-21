@@ -8,7 +8,7 @@ A fast, sleek, and minimalist personal projects portfolio website crafted for **
 - **Direct App Launch**: Click any project card to immediately open the live web app in a new tab.
 - **Cover-image cards**: Gallery-style cards with screenshots, rounded corners, subtle border, and hover wash.
 - **Easy Project Management**: Add, update, or remove projects simply by editing `src/data/projects.ts`.
-- **Search & Filtering**: Real-time search across titles, descriptions, and tags + category filter pills with live counts.
+- **Category Filtering**: Category filter pills with live counts.
 - **Dark / Light Mode**: Dark theme default with clean light mode toggle.
 - **Responsive & Fast**: Built with React, TypeScript, Tailwind CSS, and Vite for instant load times.
 

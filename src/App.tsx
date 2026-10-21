@@ -4,11 +4,10 @@ import { FilterBar } from './components/FilterBar';
 import { ProjectCard } from './components/ProjectCard';
 import { Footer } from './components/Footer';
 import { projects, Category, profileConfig } from './data/projects';
-import { Search, Compass } from 'lucide-react';
+import { Compass } from 'lucide-react';
 
 export function App() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
-  const [searchQuery, setSearchQuery] = useState('');
 
   // Initialize theme from localStorage or fallback to system preference
   const [isDark, setIsDark] = useState<boolean>(() => {
@@ -66,20 +65,9 @@ export function App() {
   // Filtered projects
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
-      const matchesCategory =
-        selectedCategory === 'All' || project.category === selectedCategory;
-
-      const query = searchQuery.toLowerCase().trim();
-      const matchesSearch =
-        !query ||
-        project.title.toLowerCase().includes(query) ||
-        project.description.toLowerCase().includes(query) ||
-        project.tags.some((tag) => tag.toLowerCase().includes(query)) ||
-        project.category.toLowerCase().includes(query);
-
-      return matchesCategory && matchesSearch;
+      return selectedCategory === 'All' || project.category === selectedCategory;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory]);
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${
@@ -127,14 +115,12 @@ export function App() {
           </p>
         </section>
 
-        {/* Filter and Search Bar */}
+        {/* Category filters */}
         <section className="mb-8">
           <FilterBar
             isDark={isDark}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
             countsByCategory={countsByCategory}
             totalCount={projects.length}
           />
@@ -152,21 +138,17 @@ export function App() {
             <div className={`py-16 text-center rounded-2xl border border-dashed ${
               isDark ? 'border-neutral-800 bg-neutral-900/20' : 'border-neutral-300 bg-neutral-100/50'
             }`}>
-              <Search className={`w-8 h-8 mx-auto mb-3 ${isDark ? 'text-neutral-600' : 'text-neutral-400'}`} />
               <h3 className={`text-sm font-semibold ${isDark ? 'text-neutral-300' : 'text-neutral-700'}`}>No apps found</h3>
               <p className={`text-xs max-w-xs mx-auto mt-1 ${isDark ? 'text-neutral-500' : 'text-neutral-500'}`}>
-                No projects matched "{searchQuery}" in {selectedCategory}.
+                No projects in {selectedCategory}.
               </p>
               <button
-                onClick={() => {
-                  setSelectedCategory('All');
-                  setSearchQuery('');
-                }}
+                onClick={() => setSelectedCategory('All')}
                 className={`mt-4 px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors ${
                   isDark ? 'bg-neutral-800 hover:bg-neutral-700 text-neutral-200' : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-800'
                 }`}
               >
-                Reset Filters
+                Show all
               </button>
             </div>
           )}
