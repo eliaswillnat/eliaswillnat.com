@@ -10,6 +10,7 @@ A fast, sleek, and minimalist personal projects portfolio website crafted for **
 - **Easy Project Management**: Add, update, or remove projects simply by editing `src/data/projects.ts`.
 - **Category Filtering**: Category filter pills with live counts.
 - **Dark / Light Mode**: Dark theme default with clean light mode toggle.
+- **Boston typeface**: Self-hosted Latinotype Boston (same face as Whenext).
 - **Responsive & Fast**: Built with React, TypeScript, Tailwind CSS, and Vite for instant load times.
 
 ## How to Add or Edit Your Apps
