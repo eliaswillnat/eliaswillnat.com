@@ -1,0 +1,143 @@
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-Thin.woff2) format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-ThinIt.woff2) format('woff2');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-ExtraLight.woff2) format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-ExtraLightIt.woff2) format('woff2');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-Light.woff2) format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-LightIt.woff2) format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-Regular.woff2) format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-RegularIt.woff2) format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-SemiBold.woff2) format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-SemiBoldIt.woff2) format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-SemiBold.woff2) format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-SemiBoldIt.woff2) format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-Bold.woff2) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-BoldIt.woff2) format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-Heavy.woff2) format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-HeavyIt.woff2) format('woff2');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-Black.woff2) format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Boston;
+  src: url(/fonts/Boston/Boston-BlackIt.woff2) format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}

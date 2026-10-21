@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Sparkles } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import { ArrowUpRight } from 'lucide-react';
 import { Project } from '../data/projects';
 
 interface ProjectCardProps {
@@ -9,167 +8,96 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark = true }) => {
-  const getStatusBadge = (status?: Project['status']) => {
-    switch (status) {
-      case 'Live':
-        return (
-          <span className={`inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full border ${
-            isDark 
-              ? 'text-emerald-400 bg-emerald-950/60 border-emerald-800/50' 
-              : 'text-emerald-700 bg-emerald-50 border-emerald-200'
-          }`}>
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Live
-          </span>
-        );
-      case 'New':
-        return (
-          <span className={`inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full border ${
-            isDark 
-              ? 'text-amber-400 bg-amber-950/60 border-amber-800/50' 
-              : 'text-amber-700 bg-amber-50 border-amber-200'
-          }`}>
-            <Sparkles className="w-2.5 h-2.5" />
-            New
-          </span>
-        );
-      case 'Beta':
-        return (
-          <span className={`inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full border ${
-            isDark 
-              ? 'text-sky-400 bg-sky-950/60 border-sky-800/50' 
-              : 'text-sky-700 bg-sky-50 border-sky-200'
-          }`}>
-            Beta
-          </span>
-        );
-      case 'Open Source':
-        return (
-          <span className={`inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full border ${
-            isDark 
-              ? 'text-purple-400 bg-purple-950/60 border-purple-800/50' 
-              : 'text-purple-700 bg-purple-50 border-purple-200'
-          }`}>
-            OSS
-          </span>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
     <a
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative overflow-hidden flex flex-col justify-between p-5 rounded-2xl border shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none cursor-pointer ${
-        isDark 
-          ? 'bg-neutral-900/40 hover:bg-neutral-900/80 border-neutral-800/70 hover:border-neutral-700/90 hover:shadow-black/40 focus:ring-2 focus:ring-neutral-400' 
-          : 'bg-white hover:bg-neutral-50/90 border-neutral-200/80 hover:border-neutral-300 hover:shadow-neutral-200/60 focus:ring-2 focus:ring-neutral-600'
+      data-slot="card"
+      className={`group relative flex flex-col cursor-pointer touch-manipulation select-none rounded-2xl overflow-hidden outline-none transition-[background-color,opacity] duration-200 ease-out active:opacity-90 after:pointer-events-none after:absolute after:inset-0 after:z-[5] after:rounded-[inherit] after:bg-transparent after:transition-colors after:duration-200 hover:after:bg-black/[0.04] dark:after:mix-blend-screen dark:hover:after:bg-[#2A415C]/[0.08] motion-reduce:after:transition-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+        isDark
+          ? 'bg-neutral-950 focus-visible:ring-neutral-400 focus-visible:ring-offset-neutral-950'
+          : 'bg-white focus-visible:ring-neutral-600 focus-visible:ring-offset-white'
       }`}
       title={`Open ${project.title} (${project.url})`}
     >
-      {/* Shine Sweep Effect */}
-      <div 
-        className={`absolute inset-0 -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out pointer-events-none skew-x-[-25deg] ${
-          isDark 
-            ? 'bg-gradient-to-r from-transparent via-white/[0.07] to-transparent' 
-            : 'bg-gradient-to-r from-transparent via-black/[0.04] to-transparent'
-        }`}
-      />
-
-      <div className="relative z-10">
-        {/* Top bar in card: Icon + Status + Arrow */}
-        <div className="flex items-start justify-between gap-3 mb-4">
-          <div className="flex items-center gap-3">
-            {/* App Icon Container */}
-            <div className={`w-11 h-11 rounded-xl border flex items-center justify-center text-xl shadow-inner group-hover:scale-105 transition-transform ${
-              isDark 
-                ? 'bg-neutral-800/80 border-neutral-700/50' 
-                : 'bg-neutral-100 border-neutral-200/80'
-            }`}>
-              {project.icon}
-            </div>
-
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className={`text-base font-semibold tracking-tight transition-colors ${
-                  isDark 
-                    ? 'text-neutral-100 group-hover:text-white' 
-                    : 'text-neutral-900 group-hover:text-neutral-950'
-                }`}>
-                  {project.title}
-                </h3>
-              </div>
-              <span className={`text-[11px] font-medium ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
-                {project.category} {project.year && `• ${project.year}`}
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            {getStatusBadge(project.status)}
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-              isDark 
-                ? 'bg-neutral-800/40 group-hover:bg-neutral-700/80 text-neutral-400 group-hover:text-white' 
-                : 'bg-neutral-100 group-hover:bg-neutral-200 text-neutral-500 group-hover:text-neutral-900'
-            }`}>
-              <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </div>
-          </div>
+      <div className="relative w-full aspect-[3/4]">
+        <div
+          className={`absolute inset-0 h-full w-full overflow-hidden ${
+            isDark ? 'bg-white/5' : 'bg-neutral-100'
+          }`}
+        >
+          <img
+            src={project.coverImage}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 z-[2] h-full w-full object-cover object-top opacity-100 transition-opacity duration-300 ease-out"
+          />
         </div>
 
-        {/* Project Description */}
-        <p className={`text-xs sm:text-sm line-clamp-3 leading-relaxed mb-4 ${
-          isDark ? 'text-neutral-300' : 'text-neutral-600'
-        }`}>
-          {project.description}
-        </p>
-      </div>
+        {/* Subtle gradient border — Whenext gallery style */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[5] rounded-2xl p-px"
+          aria-hidden="true"
+          style={{
+            background:
+              'linear-gradient(to bottom, var(--card-border-tone, #94a3b8) 0%, transparent 50%, var(--card-border-tone, #94a3b8) 100%)',
+            WebkitMask:
+              'linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0)',
+            mask: 'linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0)',
+            opacity: isDark ? 0.22 : 0.2,
+          }}
+        />
 
-      {/* Card Footer: Tech tags + GitHub link */}
-      <div className={`relative z-10 pt-3 border-t flex items-center justify-between gap-2 mt-auto ${
-        isDark ? 'border-neutral-800/60' : 'border-neutral-100'
-      }`}>
-        <div className="flex items-center gap-1.5 flex-wrap">
-          {project.tags.slice(0, 3).map((tag) => (
+        {/* Bottom typography overlay */}
+        <div
+          className={`absolute inset-x-0 bottom-0 z-[4] flex flex-col gap-0.5 bg-gradient-to-t px-4 pb-4 pt-16 ${
+            isDark
+              ? 'from-neutral-950 via-neutral-950/75 to-transparent'
+              : 'from-white via-white/75 to-transparent'
+          }`}
+        >
+          <div className="flex min-w-0 items-center justify-between gap-1.5">
             <span
-              key={tag}
-              className={`px-2 py-0.5 text-[10px] font-mono font-medium rounded-md border ${
-                isDark 
-                  ? 'bg-neutral-800/80 text-neutral-400 border-neutral-700/40' 
-                  : 'bg-neutral-100 text-neutral-600 border-neutral-200'
+              className={`inline-flex w-fit max-w-full items-center rounded-[4px] border px-1 py-0.5 text-[10px] font-bold leading-none tracking-wide sm:text-[11px] -ml-[5px] ${
+                isDark
+                  ? 'border-slate-300/10 bg-slate-700/25 text-slate-200/70'
+                  : 'border-slate-400/15 bg-slate-500/5 text-slate-700/85'
               }`}
             >
-              {tag}
+              {project.category}
             </span>
-          ))}
-          {project.tags.length > 3 && (
-            <span className={`text-[10px] font-mono ${isDark ? 'text-neutral-500' : 'text-neutral-400'}`}>
-              +{project.tags.length - 3}
-            </span>
-          )}
-        </div>
 
-        {project.githubUrl && (
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
-            }}
-            className={`p-1.5 rounded-md transition-colors ${
-              isDark 
-                ? 'text-neutral-400 hover:text-white hover:bg-neutral-800' 
-                : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100'
+            <span
+              className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md transition-colors ${
+                isDark
+                  ? 'text-slate-400 group-hover:text-slate-100'
+                  : 'text-slate-500 group-hover:text-slate-800'
+              }`}
+              aria-hidden="true"
+            >
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+          </div>
+
+          <p
+            className={`min-w-0 text-sm font-bold leading-[1.15] line-clamp-2 ${
+              isDark ? 'text-neutral-50' : 'text-neutral-900'
             }`}
-            title="View Source on GitHub"
-            aria-label={`View source of ${project.title}`}
+            title={project.title}
           >
-            <GithubIcon className="w-3.5 h-3.5" />
-          </button>
-        )}
+            {project.title}
+          </p>
+
+          <p
+            className={`mt-1 min-w-0 text-[11px] sm:text-xs leading-snug line-clamp-3 ${
+              isDark ? 'text-slate-300/80' : 'text-slate-600'
+            }`}
+          >
+            {project.description}
+          </p>
+        </div>
       </div>
     </a>
   );
