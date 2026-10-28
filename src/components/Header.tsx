@@ -1,5 +1,5 @@
 import React from 'react';
-import { Moon, Sun, Mail } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { GithubIcon, TwitterIcon, LinkedinIcon } from './Icons';
 import { profileConfig } from '../data/projects';
 
@@ -89,19 +89,6 @@ export const Header: React.FC<HeaderProps> = ({ isDark, onToggleTheme, projectCo
               aria-label="LinkedIn"
             >
               <LinkedinIcon className="w-4 h-4" />
-            </a>
-          )}
-
-          {profileConfig.socials.email && (
-            <a
-              href={profileConfig.socials.email}
-              className={`p-2 rounded-lg transition-colors ${
-                isDark ? 'text-neutral-400 hover:text-white hover:bg-neutral-800/60' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
-              }`}
-              title="Contact via Email"
-              aria-label="Email"
-            >
-              <Mail className="w-4 h-4" />
             </a>
           )}
 
