@@ -19,13 +19,6 @@ export const Footer: React.FC<FooterProps> = ({ isDark = true }) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <a
-            href={profileConfig.socials.email}
-            className={`transition-colors ${isDark ? 'hover:text-white' : 'hover:text-neutral-900'}`}
-          >
-            Get in touch
-          </a>
-          <span>&bull;</span>
           <span className="font-mono text-[11px]">eliaswillnat.com</span>
         </div>
 
