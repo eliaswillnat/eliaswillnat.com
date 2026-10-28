@@ -24,7 +24,6 @@ export interface ProfileConfig {
     github?: string;
     twitter?: string;
     linkedin?: string;
-    email?: string;
   };
 }
 
@@ -39,8 +38,7 @@ export const profileConfig: ProfileConfig = {
   socials: {
     github: "https://github.com/eliaswillnat",
     twitter: "https://x.com/eliaswillnat",
-    linkedin: "https://linkedin.com/in/eliaswillnat",
-    email: "mailto:hello@eliaswillnat.com"
+    linkedin: "https://linkedin.com/in/eliaswillnat"
   }
 };
 
