@@ -16,29 +16,18 @@ export const Header: React.FC<HeaderProps> = ({ isDark, onToggleTheme, projectCo
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
-        {/* Top Left: Name & Status */}
+        {/* Top Left: Name */}
         <div className="flex items-center gap-3.5">
           <a 
             href="/" 
             className="group flex flex-col items-start focus:outline-none"
             title="Elias Willnat"
           >
-            <div className="flex items-center gap-2">
-              <span className={`font-bold text-lg sm:text-xl tracking-tight transition-colors ${
-                isDark ? 'text-neutral-100 group-hover:text-amber-400' : 'text-neutral-900 group-hover:text-amber-600'
-              }`}>
-                {profileConfig.name}
-              </span>
-              <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium border ${
-                isDark 
-                  ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' 
-                  : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-              }`}>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="hidden xs:inline">{profileConfig.status.text}</span>
-                <span className="xs:hidden">Live</span>
-              </span>
-            </div>
+            <span className={`font-bold text-lg sm:text-xl tracking-tight transition-colors ${
+              isDark ? 'text-neutral-100 group-hover:text-amber-400' : 'text-neutral-900 group-hover:text-amber-600'
+            }`}>
+              {profileConfig.name}
+            </span>
             <span className={`text-xs font-normal hidden sm:inline ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
               {profileConfig.role} &bull; {projectCount} {projectCount === 1 ? 'App' : 'Apps'}
             </span>
